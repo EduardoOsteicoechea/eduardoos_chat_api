@@ -26,7 +26,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             sudo rm -rf /var/cache/nginx/*
-            sudo rm -r /var/www/html/eduardoos_chat_api
+
+            if [ -d "/var/www/html/eduardoos_chat_api" ]; then
+              echo "/var/www/html/eduardoos_chat_api exists, removing..."
+              sudo rm -r /var/www/html/eduardoos_chat_api
+            else
+              echo "/var/www/html/eduardoos_chat_api does not exist, skipping removal."
+            fi
+            
             cd /var/www/html/
             sudo git clone origin https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
 
