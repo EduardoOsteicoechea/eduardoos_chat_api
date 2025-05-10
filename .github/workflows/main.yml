@@ -37,7 +37,7 @@ jobs:
             sudo screen -S eduardoos_chat_api 
             sudo dotnet api.dll --urls "https://*:8090"
             sudo systemctl restart nginx
-            sudo systemctl reload nginx 
+            sudo systemctl reload nginx  
 
       - name: Wait for deployment
         run: |
