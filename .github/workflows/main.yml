@@ -1,0 +1,44 @@
+name: Deploy to ec2
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+ 
+      - name: Connect to EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo rm -rf /var/cache/nginx/*
+            sudo rm -r /var/www/html/eduardoos_chat_api
+            cd /var/www/html/
+            sudo git clone origin https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
+            sudo kill -9 $(pgrep -f "eduardoos_chat_api$") # kill old process
+            cd eduardoos/api
+            sudo dotnet restore
+            sudo dotnet publish -c Release
+            cd bin/Release/net9.0/publish 
+            sudo screen -S eduardoos_chat_api 
+            sudo dotnet api.dll --urls "https://*:8090"
+            sudo systemctl restart nginx
+            sudo systemctl reload nginx 
+
+      - name: Wait for deployment
+        run: |
+          sleep 10
