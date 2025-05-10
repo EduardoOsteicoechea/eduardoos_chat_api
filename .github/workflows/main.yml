@@ -29,13 +29,16 @@ jobs:
             sudo rm -r /var/www/html/eduardoos_chat_api
             cd /var/www/html/
             sudo git clone origin https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
-            if sudo lsof -ti:8090; then
+
+            if sudo netstat -tuln | grep :8090; then
               echo "Killing processes on port 8090..."
-              sudo kill -9 $(sudo lsof -ti:8090)
+              sudo kill -9 $(sudo netstat -tulnp | grep :8090 | awk '{print $7}' | cut -d'/' -f1)
             else
               echo "No process found listening on port 8090."
             fi
+
             cd eduardoos_chat_api
+
             sudo dotnet restore
             sudo dotnet publish -c Release
             cd bin/Release/net8.0/publish 
