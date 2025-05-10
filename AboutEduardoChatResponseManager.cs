@@ -14,6 +14,7 @@ public class AboutEduardoChatResponseManager
     catch (System.Exception exception)
     {
       Console.WriteLine($"Error:\n\nApiKey = Environment.GetEnvironmentVariable(\"DEEPSEEK_API_KEY\");\n\n{exception.Message}");
+      throw;
     }
 
     using (HttpClient client = new HttpClient())
@@ -79,6 +80,7 @@ public class AboutEduardoChatResponseManager
       catch (System.Exception exception)
       {
         Console.WriteLine($"{exception.Message}\n{exception.StackTrace}");
+        throw;
         return [];
       }
     }
