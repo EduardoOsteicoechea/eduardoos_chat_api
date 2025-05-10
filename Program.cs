@@ -47,7 +47,7 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
 
     string response = Newtonsoft.Json.JsonConvert.SerializeObject(aboutEduardoChatResponse);
 
-    return Results.Ok(response);
+    return Results.Ok(response); 
   }
   catch (System.Exception exception)
   {
