@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1h8km6+NtwU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\eduar\\Documents\\work\\internal\\eduardoos\\eduardoos_chatbot_api\\eduardoos_chatbot_api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eduar\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

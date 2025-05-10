@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eduardoos_chatbot_api", "eduardoos_chatbot_api.csproj", "{03D67907-96DD-7A2E-F42C-2D2C7C028FA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03D67907-96DD-7A2E-F42C-2D2C7C028FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D67907-96DD-7A2E-F42C-2D2C7C028FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D67907-96DD-7A2E-F42C-2D2C7C028FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D67907-96DD-7A2E-F42C-2D2C7C028FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82939A50-2184-43A8-8B01-E088E6A88918}
+	EndGlobalSection
+EndGlobal
