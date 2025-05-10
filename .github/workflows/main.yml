@@ -33,9 +33,9 @@ jobs:
             else
               echo "/var/www/html/eduardoos_chat_api does not exist, skipping removal."
             fi
-            
+
             cd /var/www/html/
-            sudo git clone origin https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
+            sudo git clone https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
 
             if sudo netstat -tuln | grep :8090; then
               echo "Killing processes on port 8090..."
