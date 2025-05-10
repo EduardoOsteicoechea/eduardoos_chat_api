@@ -58,13 +58,10 @@ jobs:
             cd eduardoos_chat_api
             sudo dotnet restore
             sudo dotnet publish -c Release
-
             cd bin/Release/net8.0/publish 
-
-            sudo screen -S eduardoos_chat_api 
-            sudo dotnet eduardoos_chat_api.dll --urls "https://*:8090"
+            sudo screen -dmS eduardoos_chat_api sudo dotnet eduardoos_chatbot_api.dll --urls "https://*:8090"
             sudo systemctl restart nginx
-            sudo systemctl reload nginx  
+            sudo systemctl reload nginx 
 
       - name: Wait for deployment
         run: |
