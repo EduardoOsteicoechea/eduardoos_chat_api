@@ -2,15 +2,15 @@ using eduardoos_chat_api;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.Services.AddCors(options =>
-// {
-//   options.AddPolicy("AllowLocalhostReact", policy =>
-//   {
-//     policy.WithOrigins("http://localhost:5173")
-//     .AllowAnyHeader()
-//     .AllowAnyMethod();
-//   });
-// });
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy("AllowLocalhostReact", policy =>
+  {
+    policy.WithOrigins("http://localhost:5173")
+    .AllowAnyHeader()
+    .AllowAnyMethod();
+  });
+});
 
 var app = builder.Build();
 
@@ -55,5 +55,5 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
   }
 });
 
-// app.UseCors("AllowLocalhostReact");
+app.UseCors("AllowLocalhostReact");
 app.Run();
