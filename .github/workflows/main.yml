@@ -17,7 +17,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
- 
+  
       - name: Connect to EC2 instance
         uses: appleboy/ssh-action@master
         with:
@@ -36,23 +36,35 @@ jobs:
 
             cd /var/www/html/
             sudo git clone https://github.com/EduardoOsteicoechea/eduardoos_chat_api.git
-
-            if sudo netstat -tuln | grep :8090; then
-              echo "Killing processes on port 8090..."
-              sudo kill -9 $(sudo netstat -tulnp | grep :8090 | awk '{print $7}' | cut -d'/' -f1)
+            
+            if command -v lsof >/dev/null 2>&1; then
+              echo "lsof is available, using it to find and kill processes on port 8090..."
+              if sudo lsof -ti:8090; then
+                echo "Killing processes on port 8090..."
+                sudo kill -9 $(sudo lsof -ti:8090)
+              else
+                echo "No process found listening on port 8090."
+              fi
             else
-              echo "No process found listening on port 8090."
+              echo "lsof is not available, using netstat to find and kill processes on port 8090..."
+              if sudo netstat -tuln | grep :8090; then
+                echo "Killing processes on port 8090..."
+                sudo kill -9 $(sudo netstat -tulnp | grep :8090 | awk '{print $7}' | cut -d'/' -f1)
+              else
+                echo "No process found listening on port 8090."
+              fi
             fi
 
             cd eduardoos_chat_api
-
             sudo dotnet restore
             sudo dotnet publish -c Release
+
             cd bin/Release/net8.0/publish 
+
             sudo screen -S eduardoos_chat_api 
-            sudo dotnet api.dll --urls "https://*:8090"
+            sudo dotnet eduardoos_chat_api.dll --urls "https://*:8090"
             sudo systemctl restart nginx
-            sudo systemctl reload nginx  
+            sudo systemctl reload nginx  
 
       - name: Wait for deployment
         run: |
