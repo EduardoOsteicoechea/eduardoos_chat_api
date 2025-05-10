@@ -14,9 +14,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.MapGet("/api/chatbot", () => "Hello World!");
+app.MapGet("/chatbot", () => "Hello World!");
 
-app.MapPost("/api/chatbot/about/eduardo", async (HttpContext context) =>
+app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
 {
   try
   {
