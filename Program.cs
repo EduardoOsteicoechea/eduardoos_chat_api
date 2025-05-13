@@ -46,9 +46,10 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
     List<DeepSeekChatMessageModel> aboutEduardoChatResponse = await aboutEduardoChatResponseManager.GetResponse(request);
 
     string response = Newtonsoft.Json.JsonConvert.SerializeObject(aboutEduardoChatResponse);
+
     context.Response.ContentType = "application/json";
 
-    return Results.Ok(response); 
+    return Results.Json(response); 
   }
   catch (System.Exception exception)
   {
