@@ -23,7 +23,7 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
     AboutEduardoChatRequest request = await context.Request.ReadFromJsonAsync<AboutEduardoChatRequest>();
 
     Console.WriteLine($"After deserialization:");
-    if (request.previous_messages == null)
+    if (request!.previous_messages == null)
     {
       Console.WriteLine("PreviousMessages is null.");
     }
@@ -43,7 +43,7 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
 
     AboutEduardoChatResponseManager aboutEduardoChatResponseManager = new();
 
-    List<DeepSeekChatMessageModel> aboutEduardoChatResponse = await aboutEduardoChatResponseManager.GetResponse(request);
+    DeepSeekChatMessageModel aboutEduardoChatResponse = await aboutEduardoChatResponseManager.GetResponse(request);
 
     string response = Newtonsoft.Json.JsonConvert.SerializeObject(aboutEduardoChatResponse);
 
