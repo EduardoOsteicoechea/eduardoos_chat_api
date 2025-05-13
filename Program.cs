@@ -49,7 +49,7 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
 
     context.Response.ContentType = "application/json";
 
-    return Results.Json(response); 
+    return Results.Json(aboutEduardoChatResponse); 
   }
   catch (System.Exception exception)
   {
