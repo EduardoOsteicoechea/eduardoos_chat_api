@@ -149,6 +149,8 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
         {
           string apiResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 
+          Console.WriteLine($"apiResponse:\n{apiResponse}");
+
           DeepSeekResponseModel deepSeekResponseModel = Newtonsoft.Json.JsonConvert.DeserializeObject<DeepSeekResponseModel>(apiResponse)!;
 
           DeepSeekResponseChoiceModel choice = deepSeekResponseModel.Choices.FirstOrDefault()!;
