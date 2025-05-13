@@ -156,7 +156,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
           DeepSeekResponseChoiceModel choice = deepSeekResponseModel.Choices.FirstOrDefault()!;
           DeepSeekChatMessageModel responseMessage = new();
           responseMessage.Content = choice.Message.Content;
-          responseMessage.Role = "bot";
+          responseMessage.Role = "assistant";
 
           return responseMessage;
         }
