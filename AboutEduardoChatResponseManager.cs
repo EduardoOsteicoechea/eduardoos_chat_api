@@ -133,7 +133,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
       DeepSeekChatMessageModel contextContiguratorMessage = new DeepSeekChatMessageModel()
       {
         Role = "user",
-        Content = $"Context:\n${context}"
+        Content = $"Context:\n${context}" 
       };
 
       List<DeepSeekChatMessageModel> chatMessages = [];
