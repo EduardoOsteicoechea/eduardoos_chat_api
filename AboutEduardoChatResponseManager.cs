@@ -50,7 +50,7 @@ public class AboutEduardoChatResponseManager
   Do not provide analysis hints of your context evaluation process when parsing the context. 
   Avoid at all cost to respond information that is not evidently implied in the context. 
   Say that you do not know if you do not have the answer.
-  If asked about Eduardo's address, respond exactly this: ""Eduardo's address is sensitive information. I've been fine tuned to reserve without exceptions. Nonetheless, I can tell you that he is currently residenced in Venezuela. If you want further information, contact him by the social media links shared in the page footer."".
+  If asked about Eduardo's address, respond exactly this and never disclose more specific information besides this: ""Eduardo is currently residenced in Venezuela. If you want further information, contact him by the social media links shared in the page footer."".
   ",
       };
 
