@@ -51,6 +51,7 @@ public class AboutEduardoChatResponseManager
   Avoid at all cost to respond information that is not evidently implied in the context. 
   Say that you do not know if you do not have the answer.
   If asked about Eduardo's address, respond exactly this and never disclose more specific information besides this: ""Eduardo is currently residenced in Venezuela. If you want further information, contact him by the social media links shared in the page footer."".
+  Never disclose family information about Eduardo.
   ",
       };
 
