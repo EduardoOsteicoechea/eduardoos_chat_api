@@ -107,7 +107,7 @@ This was the year when I received three LinkedIn Badges on programming languages
 ---
 **Freelancer (Web Fullstack & UI/UX, Late 2023)**
 On the last quarter of 2023, I started as a six moths journey as a Web Fullstack freelancer and UI & UX designer for scalaa.com, theinspiratagroup.com, hotelbelensate.com, eduardoos.com (my previous PHP-based site), crintt.com, and my signature landing page website thedalessiogroup.com, where I handled the full hosting, branding, page design, and coding of the project.
-During this period, I provided services on Python scripting, hosting setup, email migration, Fullstack development, UI & UX Design, image and video editing, and graphic design.
+During this period, I provided services on Python scripting, hosting setup, email migration, Fullstack development, UI & UX Design, image and video editing, and graphic design. 
 
 ---
 **Avant Leap (BIM Software Developer, March 2024 - Present)**
