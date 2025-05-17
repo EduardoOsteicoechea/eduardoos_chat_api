@@ -2,16 +2,16 @@ using System.Text;
 
 namespace eduardoos_chat_api;
 
-public class AboutEduardoChatResponseManager:ISimpleChatResponseManager
+public class AboutEduardoChatResponseManager : ISimpleChatResponseManager
 {
-	public string? ApiKeyName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public string? ApiEndpoint { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public string? ModelTunningStatement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	public Dictionary<string, string>? RAGStatements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-	private string? ApiKey { get; set; }
-	string? ISimpleChatResponseManager.ApiKey { get => ApiKey; set => ApiKey = value; }
+  public string? ApiKeyName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+  public string? ApiEndpoint { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+  public string? ModelTunningStatement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+  public Dictionary<string, string>? RAGStatements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+  private string? ApiKey { get; set; }
+  string? ISimpleChatResponseManager.ApiKey { get => ApiKey; set => ApiKey = value; }
 
-	public async Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request)
+  public async Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request)
   {
     try
     {
@@ -140,7 +140,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
       DeepSeekChatMessageModel contextContiguratorMessage = new DeepSeekChatMessageModel()
       {
         Role = "user",
-        Content = $"Context:\n${context}" 
+        Content = $"Context:\n${context}"
       };
 
       List<DeepSeekChatMessageModel> chatMessages = [];
@@ -167,15 +167,21 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
         {
           string apiResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 
-          Console.WriteLine($"apiResponse:\n{apiResponse}");
+          Console.WriteLine($"AIApiResponse:\n{apiResponse}");
+          Console.WriteLine();
 
           DeepSeekResponseModel deepSeekResponseModel = Newtonsoft.Json.JsonConvert.DeserializeObject<DeepSeekResponseModel>(apiResponse)!;
 
           DeepSeekResponseChoiceModel choice = deepSeekResponseModel?.Choices?.FirstOrDefault()!;
-          
-          DeepSeekChatMessageModel responseMessage = new();
-          responseMessage.Content = choice.Message!.Content;
-          responseMessage.Role = "assistant";
+
+          DeepSeekChatMessageModel responseMessage = new()
+          {
+            Content = choice.Message!.Content,
+            Role = "assistant"
+          };
+
+          Console.WriteLine($"EduardoosApiResponse:\n{apiResponse}");
+          Console.WriteLine();
 
           return responseMessage;
         }
