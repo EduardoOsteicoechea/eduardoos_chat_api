@@ -153,7 +153,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
         {
           chatMessages.AddRange(request.previous_messages);
         }
-        chatMessages.Add(request.message);
+        chatMessages.Add(request.message!);
 
         deepSeekRequestBodyModel.Messages = chatMessages.ToArray();
 
