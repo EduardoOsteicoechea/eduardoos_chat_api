@@ -18,6 +18,8 @@ app.MapGet("/chatbot", () => "Hello World!");
 
 app.MapPost("/chatbot/about/eduardo", async context =>
 {
+  Results.Ok("Great!");
+
   // try
   // {
   //   Console.WriteLine($"Starting request processing at: {DateTime.Now}");
@@ -58,8 +60,6 @@ app.MapPost("/chatbot/about/eduardo", async context =>
   // {
   //   Results.BadRequest(exception.Message);
   // }
-
-  Results.Ok("Great!");
 });
 
 app.UseCors("AllowLocalhostReact");
