@@ -11,7 +11,7 @@ public class AboutEduardoChatResponseManager : ISimpleChatResponseManager
   private string? ApiKey { get; set; }
   string? ISimpleChatResponseManager.ApiKey { get => ApiKey; set => ApiKey = value; }
 
-  public async Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request)
+  public async Task<string> GetResponse(SimpleMessagingChatRequest request)
   {
     try
     {
@@ -174,11 +174,13 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
 
           DeepSeekResponseChoiceModel choice = deepSeekResponseModel?.Choices?.FirstOrDefault()!;
 
-          DeepSeekChatMessageModel responseMessage = new()
-          {
-            Role = "assistant",
-            Content = choice.Message!.Content
-          };
+          string responseMessage = choice.Message!.Content!;
+
+          // DeepSeekChatMessageModel responseMessage = new()
+          // {
+          //   Role = "assistant",
+          //   Content = choice.Message!.Content
+          // };
 
           Console.WriteLine($"eduardoosApiResponse:\n{responseMessage}"); 
           Console.WriteLine();
