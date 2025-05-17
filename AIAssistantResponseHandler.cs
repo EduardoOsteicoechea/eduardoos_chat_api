@@ -39,7 +39,7 @@ public static class AIAssistantResponseHandler
 		}
 		catch (System.Exception exception)
 		{
-			return Results.BadRequest(exception.Message);
+			return Results.BadRequest($"{exception.Message}\n\n{exception.StackTrace}");
 		}
 	}
 }
