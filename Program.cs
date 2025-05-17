@@ -12,6 +12,8 @@ builder.Services.AddCors(options =>
   });
 });
 
+
+
 var app = builder.Build();
 
 app.MapGet("/chatbot", () => "Hello World!");
