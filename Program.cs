@@ -12,61 +12,13 @@ builder.Services.AddCors(options =>
   });
 });
 
-
-
 var app = builder.Build();
 
 app.MapGet("/chatbot", () => "Hello World!");
 
-app.MapPost("/chatbot/about/eduardo", async context =>
+app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
 {
-  Results.Ok("Great!");
-
-  // try
-  // {
-  //   Console.WriteLine($"Starting request processing at: {DateTime.Now}");
-
-  //   SimpleMessagingChatRequest? request = await context.Request.ReadFromJsonAsync<SimpleMessagingChatRequest>();
-
-  //   Console.WriteLine($"After deserialization:");
-  //   if (request!.previous_messages == null)
-  //   {
-  //     Console.WriteLine("PreviousMessages is null.");
-  //   }
-  //   else if (request.previous_messages.Length == 0)
-  //   {
-  //     Console.WriteLine("PreviousMessages is an empty array.");
-  //   }
-  //   else
-  //   {
-  //     Console.WriteLine($"PreviousMessages count: {request.previous_messages.Length}");
-  //     foreach (var prevMessage in request.previous_messages)
-  //     {
-  //       Console.WriteLine($"  Role: {prevMessage.Role}, Content: {prevMessage.Content}");
-  //     }
-  //   }
-
-  //   Console.WriteLine($"Message - Role: {request.message?.Role}, Content: {request.message?.Content}");
-
-  //   // string aboutEduardoChatResponse = await new AboutEduardoChatResponseManager().GetResponse(request);
-  //   // Console.WriteLine($"Message Before Api Return: {aboutEduardoChatResponse}");
-
-  //   // Results.Text(aboutEduardoChatResponse);
-
-  //   string hardcodedResponse = "This is a hardcoded profile response.";
-  //   Console.WriteLine($"Message Before Api Return: {hardcodedResponse}");
-
-  //   Results.Text(hardcodedResponse, contentType: "application/text");
-  // }
-  // catch (System.Exception exception)
-  // {
-  //   Results.BadRequest(exception.Message);
-  // }
-});
-
-app.MapPost("/chatbot/about/eduardo2", async (HttpContext context) =>
-{
-    return await Task.FromResult<IResult>(Results.Text("Great!"));
+  return await Task.FromResult<IResult>(await AIAssistantResponseHandler.HandleAIChat(context, new AboutEduardoChatResponseManager()));
 });
 
 app.UseCors("AllowLocalhostReact");
