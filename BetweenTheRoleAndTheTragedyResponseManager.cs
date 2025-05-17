@@ -56,7 +56,7 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
 
         Console.WriteLine($"deepSeekRequestBodyModel:{deepSeekRequestBodyModel}");
 
-        requestMessage.Content = new StringContent(jsonContent, Encoding.UTF8, "application/text");
+        requestMessage.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
         using (HttpResponseMessage httpResponseMessage = await client.SendAsync(requestMessage))
         {
