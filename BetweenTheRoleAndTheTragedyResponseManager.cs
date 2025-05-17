@@ -116,6 +116,15 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
   Do not provide the option of talking about another idea ot topic that is not the last question topic.
   Always, absolutely always, return an estimate in percentage of the accuray of the response with the context.
   If the accuracy is bellow 70%, ask the last question again.
+
+  EXAMPLE INPUT:
+  Which is the highest mountain in the world? Mount Everest.
+
+  EXAMPLE JSON OUTPUT:
+  {{
+      ""question"": ""Which is the highest mountain in the world?"",
+      ""answer"": ""Mount Everest""
+  }}
   ",
     };
   }
