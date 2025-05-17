@@ -64,9 +64,9 @@ app.MapPost("/chatbot/about/eduardo", async context =>
   // }
 });
 
-app.MapPost("/chatbot/about/eduardo2", async context =>
+app.MapPost("/chatbot/about/eduardo2", async (HttpContext context) =>
 {
-     await Task.FromResult(Results.Text("Great!"));
+    return await Task.FromResult<IResult>(Results.Text("Great!"));
 });
 
 app.UseCors("AllowLocalhostReact");
