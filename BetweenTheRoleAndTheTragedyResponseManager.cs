@@ -14,9 +14,9 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
 
   public async Task<string> GetResponse(SimpleMessagingChatRequest request)
   {
-    await Run(async () => GetApyKey());
-    await Run(async () => FineTuneModel());
-    await Run(async () => ConfigureRAG());
+    GetApyKey();
+    FineTuneModel();
+    ConfigureRAG();
 
     using (HttpClient client = new HttpClient())
     {
@@ -84,7 +84,7 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
       }
     }
   }
-  
+
 
   public async Task Run(Func<Task> action)
   {
@@ -107,10 +107,10 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
 
   public void FineTuneModel()
   {
-      ApiContiguratorMessage = new DeepSeekChatMessageModel()
-      {
-        Role = "system",
-        Content = $@"
+    ApiContiguratorMessage = new DeepSeekChatMessageModel()
+    {
+      Role = "system",
+      Content = $@"
   You are a patient theology teacher. Avoid phrases like ""based on the provided context"" and ""This individual"". 
   Your objective is to evaluate the percentage of coherence of the user's response to the last possed question. 
   Talk naturally and in a relaxed but formal manner.
@@ -123,26 +123,23 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
   Never disclose family information about Eduardo.
   If asked about an unrelated topic, say that you've been fine tuned to remain the current topic.
   ",
-      };
+    };
   }
 
   public void ConfigureRAG()
   {
-
-      string context = $@"
+    string context = $@"
 ---
 **Theme Title**
 Between the Role and the Tragedy: A biblical and practical perspective on women's role in a fallen universe.
-  ";
 
-      ContextConfiguratorMessage = new DeepSeekChatMessageModel()
-      {
-        Role = "user",
-        Content = $"Context:\n${context}"
-      };
+";
+    ContextConfiguratorMessage = new DeepSeekChatMessageModel()
+    {
+      Role = "user",
+      Content = $"Context:\n${context}"
+    };
   }
-
-
   ////////////////////////////
   ////////////////////////////
   /// CLASS END
