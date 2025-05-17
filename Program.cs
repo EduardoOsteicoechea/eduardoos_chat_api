@@ -66,7 +66,7 @@ app.MapPost("/chatbot/about/eduardo", async context =>
 
 app.MapPost("/chatbot/about/eduardo2", async context =>
 {
-  Results.Ok("Great!");
+     await Task.FromResult(Results.Text("Great!"));
 });
 
 app.UseCors("AllowLocalhostReact");
