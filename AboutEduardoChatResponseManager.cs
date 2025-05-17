@@ -2,10 +2,16 @@ using System.Text;
 
 namespace eduardoos_chat_api;
 
-public class AboutEduardoChatResponseManager
+public class AboutEduardoChatResponseManager:ISimpleChatResponseManager
 {
-  private string? ApiKey { get; set; }
-  public async Task<DeepSeekChatMessageModel> GetResponse(AboutEduardoChatRequest request)
+	public string? ApiKeyName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+	public string? ApiEndpoint { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+	public string? ModelTunningStatement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+	public Dictionary<string, string>? RAGStatements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+	private string? ApiKey { get; set; }
+	string? ISimpleChatResponseManager.ApiKey { get => ApiKey; set => ApiKey = value; }
+
+	public async Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request)
   {
     try
     {
