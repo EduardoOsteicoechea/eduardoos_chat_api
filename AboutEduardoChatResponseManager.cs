@@ -180,7 +180,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
             Content = choice.Message!.Content
           };
 
-          Console.WriteLine($"eduardoosApiResponse:\n{responseMessage}");
+          Console.WriteLine($"eduardoosApiResponse:\n{responseMessage}"); 
           Console.WriteLine();
 
           return responseMessage;
