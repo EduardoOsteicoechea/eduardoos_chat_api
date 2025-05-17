@@ -159,7 +159,7 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
 
         string jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(deepSeekRequestBodyModel);
 
-        Console.WriteLine($"deepSeekRequestBodyModel:\n{deepSeekRequestBodyModel}");
+        Console.WriteLine($"deepSeekRequestBodyModel:{deepSeekRequestBodyModel}");
 
         requestMessage.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
@@ -176,11 +176,11 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
 
           DeepSeekChatMessageModel responseMessage = new()
           {
-            Content = choice.Message!.Content,
-            Role = "assistant"
+            Role = "assistant",
+            Content = choice.Message!.Content
           };
 
-          Console.WriteLine($"EduardoosApiResponse:\n{apiResponse}");
+          Console.WriteLine($"eduardoosApiResponse:\n{responseMessage}");
           Console.WriteLine();
 
           return responseMessage;
