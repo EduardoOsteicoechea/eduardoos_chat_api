@@ -31,7 +31,7 @@ public static class AIAssistantResponseHandler
 			}
 
 			Console.WriteLine($"Message - Role: {request.message?.Role}, Content: {request.message?.Content}");
-			context.Response.ContentType = "application/text";
+			// context.Response.ContentType = "application/text";
 			
 			string aboutEduardoChatResponse = await responseManager.GetResponse(request);
 			Console.WriteLine($"Message Before Api Return: {aboutEduardoChatResponse}");
