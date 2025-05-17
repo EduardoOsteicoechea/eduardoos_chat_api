@@ -56,7 +56,6 @@ jobs:
             fi
 
             cd eduardoos_chat_api
-            sudo dotnet dev-certs https --trust
             sudo dotnet restore
             sudo dotnet publish -c Release
             cd bin/Release/net8.0/publish 
