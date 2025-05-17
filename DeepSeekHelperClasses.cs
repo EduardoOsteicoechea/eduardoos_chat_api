@@ -15,10 +15,10 @@ public enum DeepSeekMessagesRoles
 public class DeepSeekRequestBodyModel
 {
   [JsonProperty("model")]
-  public string Model { get; set; }
+  public string? Model { get; set; }
 
   [JsonProperty("messages")]
-  public DeepSeekChatMessageModel[] Messages { get; set; }
+  public DeepSeekChatMessageModel[]? Messages { get; set; }
 
   [JsonProperty("stream")]
   public bool Stream { get; set; }
@@ -30,22 +30,22 @@ public class DeepSeekResponseModel
   public Guid Id { get; set; }
 
   [JsonProperty("object")]
-  public string Object { get; set; }
+  public string? Object { get; set; }
 
   [JsonProperty("created")]
   public long Created { get; set; }
 
   [JsonProperty("model")]
-  public string Model { get; set; }
+  public string? Model { get; set; }
 
   [JsonProperty("choices")]
-  public List<DeepSeekResponseChoiceModel> Choices { get; set; }
+  public List<DeepSeekResponseChoiceModel>? Choices { get; set; }
 
   [JsonProperty("usage")]
-  public DeepSeekAPIAccountUsage Usage { get; set; }
+  public DeepSeekAPIAccountUsage? Usage { get; set; }
 
   [JsonProperty("system_fingerprint")]
-  public string SystemFingerprint { get; set; }
+  public string? SystemFingerprint { get; set; }
 }
 
 public class DeepSeekResponseChoiceModel
@@ -54,22 +54,22 @@ public class DeepSeekResponseChoiceModel
   public int Index { get; set; }
 
   [JsonProperty("message")]
-  public DeepSeekChatMessageModel Message { get; set; }
+  public DeepSeekChatMessageModel? Message { get; set; }
 
   [JsonProperty("logprobs")]
-  public object Logprobs { get; set; } // Can be null, using object for flexibility
+  public object? Logprobs { get; set; } // Can be null, using object for flexibility
 
   [JsonProperty("finish_reason")]
-  public string FinishReason { get; set; }
+  public string? FinishReason { get; set; }
 }
 
 public class DeepSeekChatMessageModel
 {
   [JsonProperty("role")]
-  public string Role { get; set; }
+  public string? Role { get; set; }
 
   [JsonProperty("content")]
-  public string Content { get; set; }
+  public string? Content { get; set; }
 }
 
 public class DeepSeekAPIAccountUsage
@@ -84,7 +84,7 @@ public class DeepSeekAPIAccountUsage
   public int TotalTokens { get; set; }
 
   [JsonProperty("prompt_tokens_details")]
-  public DeepSeekResponsePromptTokensDetailsModel PromptTokensDetails { get; set; }
+  public DeepSeekResponsePromptTokensDetailsModel? PromptTokensDetails { get; set; }
 
   [JsonProperty("prompt_cache_hit_tokens")]
   public int PromptCacheHitTokens { get; set; }

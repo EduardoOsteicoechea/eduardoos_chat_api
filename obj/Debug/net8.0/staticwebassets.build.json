@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "O53rMY52yPhp9olAgWWjGd6j8zqJkTDEHO1qqpbZipg=",
+  "Source": "eduardoos_chatbot_api",
+  "BasePath": "_content/eduardoos_chatbot_api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\eduardoos_chatbot_api.props" />
+</Project>
