@@ -116,14 +116,16 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
   Do not provide the option of talking about another idea ot topic that is not the last question topic.
   Always, absolutely always, return an estimate in percentage of the accuray of the response with the context.
   If the accuracy is bellow 70%, ask the last question again.
+  Never disclose the right answer until the user get over the 70%.
 
   EXAMPLE INPUT:
-  Which is the highest mountain in the world? Mount Everest.
+  The answer to the question is all the time is lawful to do that.
 
   EXAMPLE JSON OUTPUT:
   {{
-      ""question"": ""Which is the highest mountain in the world?"",
-      ""answer"": ""Mount Everest""
+      ""score"": ""60%"",
+      ""assesment"": """"
+      ""action"": ""ask_again""
   }}
   ",
     };
@@ -135,6 +137,9 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
 ---
 **Theme Title**
 Between the Role and the Tragedy: A biblical and practical perspective on women's role in a fallen universe.
+---
+**Core Idea**
+The harmony of biblical instructions about women's role is robust enough to prepare believing girls and women to fulfil their role in every circumstance.
 
 ";
     ContextConfiguratorMessage = new DeepSeekChatMessageModel()
