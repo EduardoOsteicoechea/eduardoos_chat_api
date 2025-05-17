@@ -117,6 +117,7 @@ public class BetweenTheRoleAndTheTragedyResponseManager : ISimpleChatResponseMan
   Always, absolutely always, return an estimate in percentage of the accuray of the response with the context.
   If the accuracy is bellow 70%, ask the last question again.
   Never disclose the right answer until the user get over the 70%.
+  Don't reveal too much information when responding to allow the user to continue thinking and trying to figure out the answer.
 
   EXAMPLE INPUT:
   The answer to the question is all the time is lawful to do that.
