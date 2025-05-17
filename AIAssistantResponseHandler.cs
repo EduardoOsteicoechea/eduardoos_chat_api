@@ -29,14 +29,11 @@ public static class AIAssistantResponseHandler
 					Console.WriteLine($"  Role: {prevMessage.Role}, Content: {prevMessage.Content}");
 				}
 			}
-
 			Console.WriteLine($"Message - Role: {request.message?.Role}, Content: {request.message?.Content}");
-			
+			context.Response.ContentType = "application/text";
 			string aboutEduardoChatResponse = await responseManager.GetResponse(request);
-			// string response = Newtonsoft.Json.JsonConvert.SerializeObject(aboutEduardoChatResponse);
-			context.Response.ContentType = "application/json";
-
-			return Results.Json(aboutEduardoChatResponse);
+			Console.WriteLine($"Message Before Api Return: {aboutEduardoChatResponse}");
+			return Results.Text(aboutEduardoChatResponse);
 		}
 		catch (System.Exception exception)
 		{
