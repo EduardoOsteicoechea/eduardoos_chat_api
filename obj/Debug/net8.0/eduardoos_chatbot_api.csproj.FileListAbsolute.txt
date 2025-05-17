@@ -1,0 +1,7 @@
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.csproj.AssemblyReference.cache
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.AssemblyInfoInputs.cache
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.AssemblyInfo.cs
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.csproj.CoreCompileInputs.cache
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\eduar\Documents\work\internal\eduardoos\eduardoos_chatbot_api\obj\Debug\net8.0\eduardoos_chatbot_api.sourcelink.json

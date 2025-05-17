@@ -7,6 +7,6 @@ public interface ISimpleChatResponseManager
   string? ApiEndpoint { get; set; }
   string? ModelTunningStatement { get; set; }
   Dictionary<string,string>? RAGStatements  { get; set; }
-  Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request)
+  Task<DeepSeekChatMessageModel> GetResponse(SimpleMessagingChatRequest request);
 }
 

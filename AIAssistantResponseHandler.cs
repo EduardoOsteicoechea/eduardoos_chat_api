@@ -9,7 +9,6 @@ public static class AIAssistantResponseHandler
 		try
 		{
 			SimpleMessagingChatRequest request = await context.Request.ReadFromJsonAsync<SimpleMessagingChatRequest>();
-
 			Console.WriteLine($"After deserialization:");
 			if (request!.previous_messages == null)
 			{
@@ -28,11 +27,8 @@ public static class AIAssistantResponseHandler
 				}
 			}
 			Console.WriteLine($"Message - Role: {request.message.Role}, Content: {request.message.Content}");
-
 			DeepSeekChatMessageModel aboutEduardoChatResponse = await responseManager.GetResponse(request);
-
 			string response = Newtonsoft.Json.JsonConvert.SerializeObject(aboutEduardoChatResponse);
-
 			context.Response.ContentType = "application/json";
 
 			return Results.Json(aboutEduardoChatResponse);
