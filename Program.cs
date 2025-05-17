@@ -21,5 +21,10 @@ app.MapPost("/chatbot/about/eduardo", async (HttpContext context) =>
   return await Task.FromResult<IResult>(await AIAssistantResponseHandler.HandleAIChat(context, new AboutEduardoChatResponseManager()));
 });
 
+app.MapPost("/chatbot/about/between_the_role_and_the_tragedy", async (HttpContext context) =>
+{
+  return await Task.FromResult<IResult>(await AIAssistantResponseHandler.HandleAIChat(context, new BetweenTheRoleAndTheTragedyResponseManager()));
+});
+
 app.UseCors("AllowLocalhostReact");
 app.Run();

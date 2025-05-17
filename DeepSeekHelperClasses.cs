@@ -18,7 +18,7 @@ public class DeepSeekRequestBodyModel
   public string? Model { get; set; }
 
   [JsonProperty("messages")]
-  public DeepSeekChatMessageModel[]? Messages { get; set; }
+  public IAIChatMessageModel[]? Messages { get; set; }
 
   [JsonProperty("stream")]
   public bool Stream { get; set; }
@@ -63,7 +63,7 @@ public class DeepSeekResponseChoiceModel
   public string? FinishReason { get; set; }
 }
 
-public class DeepSeekChatMessageModel
+public class DeepSeekChatMessageModel: IAIChatMessageModel
 {
   [JsonProperty("role")]
   public string? Role { get; set; }
@@ -71,6 +71,8 @@ public class DeepSeekChatMessageModel
   [JsonProperty("content")]
   public string? Content { get; set; }
 }
+
+
 
 public class DeepSeekAPIAccountUsage
 {
