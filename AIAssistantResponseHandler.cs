@@ -10,7 +10,7 @@ public static class AIAssistantResponseHandler
 		{
 			Console.WriteLine($"Starting request processing at: {DateTime.Now}");
 
-			SimpleMessagingChatRequest request = await context.Request.ReadFromJsonAsync<SimpleMessagingChatRequest>();
+			SimpleMessagingChatRequest? request = await context.Request.ReadFromJsonAsync<SimpleMessagingChatRequest>();
 			
 			Console.WriteLine($"After deserialization:");
 			if (request!.previous_messages == null)

@@ -171,9 +171,10 @@ Linkedin:www.linkedin.com/in/eduardoosteicoechea.
 
           DeepSeekResponseModel deepSeekResponseModel = Newtonsoft.Json.JsonConvert.DeserializeObject<DeepSeekResponseModel>(apiResponse)!;
 
-          DeepSeekResponseChoiceModel choice = deepSeekResponseModel.Choices.FirstOrDefault()!;
+          DeepSeekResponseChoiceModel choice = deepSeekResponseModel?.Choices?.FirstOrDefault()!;
+          
           DeepSeekChatMessageModel responseMessage = new();
-          responseMessage.Content = choice.Message.Content;
+          responseMessage.Content = choice.Message!.Content;
           responseMessage.Role = "assistant";
 
           return responseMessage;
