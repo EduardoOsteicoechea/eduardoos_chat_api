@@ -28,7 +28,7 @@ public static class LLMS
       context.AppendLine($"EXAMPLE INPUT: {ModelTuningConfiguration.StructuredOutput.ExampleInput}");
       context.AppendLine();
       context.AppendLine();
-      context.AppendLine($"EXAMPLE JSON OUTPUT:\n{ModelTuningConfiguration.StructuredOutput.ExampleOutput}");
+      context.AppendLine($"EXAMPLE JSON OUTPUT:\n{Newtonsoft.Json.JsonConvert.SerializeObject(ModelTuningConfiguration.StructuredOutput.ExampleOutput)}");
 
       return context.ToString();
     });
