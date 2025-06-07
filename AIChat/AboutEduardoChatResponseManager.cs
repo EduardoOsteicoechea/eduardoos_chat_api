@@ -17,8 +17,6 @@ public class AboutEduardoChatResponseManager : ISimpleChatResponseManager
 
         DeepSeekRequestBodyModel deepSeekRequestBodyModel = await DeepSeek.StructuredTunnedRagMessage(
             "https://eduardoos.com/static_data/about_eduardo/model_tunning",
-            "https://eduardoos.com/static_data/about_eduardo/profile_rag_data",
-            "https://eduardoos.com/static_data/about_eduardo/output_structure",
             request.message!,
             request.previous_messages
         );

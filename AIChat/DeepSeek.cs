@@ -1,20 +1,9 @@
+using System.Text;
+
 namespace eduardoos_chat_api;
 
 public static class DeepSeek
 {
-
-  public class AssessmentResult
-  {
-    public string Score { get; set; }
-    public string Assessment { get; set; }
-    public string Action { get; set; }
-  }
-
-  public class OutputStructureModel
-  {
-    public string ExampleInput { get; set; }
-    public AssessmentResult ExampleOutput { get; set; }
-  }
 
   public static string BasicResponseDestructuring
   (
@@ -39,14 +28,21 @@ public static class DeepSeek
   public async static Task<DeepSeekRequestBodyModel> StructuredTunnedRagMessage
   (
       string tunningUrl,
-      string ragUrl,
-      string outputStructureUrl,
       DeepSeekChatMessageModel currentMessage,
       DeepSeekChatMessageModel[]? previousMessages = default
   )
   {
     return await Wrappers.ManagedCommand<Task<DeepSeekRequestBodyModel>>(async () =>
     {
+      string rawModelTuningConfiguration = await Requests.GetTextResponse(tunningUrl);
+
+      ModelTuningConfiguration modelTuningConfiguration = Newtonsoft.Json.JsonConvert.DeserializeObject<ModelTuningConfiguration>(rawModelTuningConfiguration)!;
+
+      if (modelTuningConfiguration == null)
+      {
+        throw new Exception("Invalid Api model tunning response.");
+      }
+
       DeepSeekRequestBodyModel deepSeekRequestBodyModel = new DeepSeekRequestBodyModel()
       {
         Model = "deepseek-chat",
@@ -56,31 +52,20 @@ public static class DeepSeek
       DeepSeekChatMessageModel apiContiguratorMessage = new DeepSeekChatMessageModel()
       {
         Role = "system",
-        Content = await Requests.GetTextResponse(tunningUrl)
+        Content = string.Join("\n", modelTuningConfiguration.ModelTuningItems)
       };
-
-      string context = await Requests.GetTextResponse(ragUrl);
-
-      string rawOutputStructureData = await Requests.GetTextResponse(outputStructureUrl);
-
-      OutputStructureModel outputStructureModel = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputStructureModel>(rawOutputStructureData)!;
-
-      AssessmentResult outputStructureModelExampleOutput = outputStructureModel.ExampleOutput!;
-
-      context += $"EXAMPLE INPUT: {outputStructureModel.ExampleInput}";
-      context += $"EXAMPLE JSON OUTPUT: {outputStructureModelExampleOutput}";
 
       DeepSeekChatMessageModel contextContiguratorMessage = new DeepSeekChatMessageModel()
       {
         Role = "user",
-        Content = $"Context:\n${context}"
+        Content = $"Context:\n${LLMS.GenerateRagDataString(modelTuningConfiguration)}"
       };
 
       List<DeepSeekChatMessageModel> chatMessages = new()
-        {
-                apiContiguratorMessage,
-                contextContiguratorMessage
-        };
+      {
+          apiContiguratorMessage,
+          contextContiguratorMessage
+      };
 
       if (previousMessages != null && previousMessages.Length > 0)
       {
