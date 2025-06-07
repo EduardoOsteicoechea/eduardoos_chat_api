@@ -57,7 +57,7 @@ public class DeepSeekResponseChoiceModel
   public DeepSeekChatMessageModel? Message { get; set; }
 
   [JsonProperty("logprobs")]
-  public object? Logprobs { get; set; } // Can be null, using object for flexibility
+  public object? Logprobs { get; set; }
 
   [JsonProperty("finish_reason")]
   public string? FinishReason { get; set; }
