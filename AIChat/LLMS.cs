@@ -10,7 +10,7 @@ public static class LLMS
       ModelTuningConfiguration ModelTuningConfiguration
   )
   {
-    return Wrappers.ManagedCommand<string>(() =>
+    return  Wrappers.ManagedCommand<string>(() =>
     {
       StringBuilder context = new();
 
