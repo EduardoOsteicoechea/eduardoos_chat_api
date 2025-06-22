@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eduardoos_chatbot_api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7ce978bc4f0db38962f0b2bfa9660890f0e8f05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e27716fad9e1930d56ed0c49dd18a39b3aefdad5")]
 [assembly: System.Reflection.AssemblyProductAttribute("eduardoos_chatbot_api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eduardoos_chatbot_api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
